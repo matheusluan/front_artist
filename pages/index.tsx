@@ -8,7 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
 
 
-const Mapa = dynamic(() => import('./components/Mapa'), {ssr: false});
+const Map = dynamic(() => import('./components/Map'), {ssr: false});
 
 
 export default function Home() {
@@ -133,7 +133,7 @@ export default function Home() {
             margin: '-3% auto',
             borderRadius: '8px',
           }}>
-            <Mapa />
+            <Map />
           </Box>
         </>
         :
