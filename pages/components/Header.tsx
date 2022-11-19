@@ -41,8 +41,7 @@ function Header() {
   return (
     <AppBar position="static" sx={{ my: 2, background: '#830AD1', margin: '0' }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>    
-               
+        <Toolbar disableGutters> 
           <Typography
             variant="h6"
             noWrap

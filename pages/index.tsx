@@ -3,9 +3,10 @@ import { Box } from '@mui/system';
 import Header from './components/Header';
 
 import fundo from './assets/mid_guitar.jpg';
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
+import Form from './components/Form';
 
 
 const Map = dynamic(() => import('./components/Map'), {ssr: false});
@@ -133,8 +134,30 @@ export default function Home() {
             margin: '-3% auto',
             borderRadius: '8px',
           }}>
-            <Map />
+
+          <Map />
           </Box>
+          <Box sx={{
+            width: '80%',
+            height: 700,
+            background: '#F6F6F6',            
+            borderRadius: '8px',
+            padding: '20px',
+            margin: '4% 11%'
+          }}>
+
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+                <Form />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography>Artista ?</Typography>
+            </Grid>           
+          </Grid>
+            
+
+              
+          </Box>          
         </>
         :
         <Box sx={{
