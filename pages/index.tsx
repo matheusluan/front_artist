@@ -3,8 +3,12 @@ import { Box } from '@mui/system';
 import Header from './components/Header';
 
 import fundo from './assets/mid_guitar.jpg';
-import { TextField, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import dynamic from 'next/dynamic';
+
+
+const Mapa = dynamic(() => import('./components/Mapa'), {ssr: false});
 
 
 export default function Home() {
@@ -83,44 +87,55 @@ export default function Home() {
       <Header />
 
       {matches ?
-        <Box sx={{
-          width: '100%',
-          height: 500,
-          maxHeight: 500,
-          background: `url(${fundo.src}) center / cover`,
-        }}>
+        <>
+          <Box sx={{
+            width: '100%',
+            height: 500,
+            maxHeight: 500,
+            background: `url(${fundo.src}) center / cover`,
+          }}>
 
-          <Typography
-            sx={styleTpMoreThen400.title}>
-            Arte é isso, arte é aqui
-          </Typography>
+            <Typography
+              sx={styleTpMoreThen400.title}>
+              Arte é isso, arte é aqui
+            </Typography>
 
-          <Typography
-            sx={styleTpMoreThen400.legend}>
-            Encontre os artistas perfeitos para o seu evento
-          </Typography>
+            <Typography
+              sx={styleTpMoreThen400.legend}>
+              Encontre os artistas perfeitos para o seu evento
+            </Typography>
 
-          <input type={'text'} style={{
-            all: 'unset',
-            color: '#fff',
+            <input type={'text'} style={{
+              all: 'unset',
+              color: '#fff',
+              background: '#830AD1',
+              height: '40px',
+              width: '200px',
+              borderRadius: '4px',
+              border: 'none',
+              fontSize: '16px',
+              fontFamily: 'nunito',
+              fontWeight: 700,
+              padding: '5px 12px',
+              position: 'absolute',
+              top: '45%',
+              left: '27%',
+              textDecoration: 'none'
+            }} value='Foz do Iguaçu'>
+
+            </input>
+
+          </Box>
+          <Box sx={{
+            width: '70%',
+            height: 700,
             background: '#830AD1',
-            height: '40px',
-            width: '200px',
-            borderRadius: '4px',
-            border: 'none',
-            fontSize: '16px',
-            fontFamily: 'nunito',
-            fontWeight: 700,
-            padding: '5px 12px',
-            position: 'absolute',
-            top: '40%',
-            left: '27%',
-            textDecoration: 'none'
-          }} value='Foz do Iguaçu'>
-
-          </input>
-
-        </Box>
+            margin: '-3% auto',
+            borderRadius: '8px',
+          }}>
+            <Mapa />
+          </Box>
+        </>
         :
         <Box sx={{
           width: '100%',
@@ -141,6 +156,7 @@ export default function Home() {
           </Typography>
 
         </Box>}
+
 
     </>
   )
