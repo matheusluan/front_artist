@@ -7,6 +7,7 @@ import { Grid, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
 import Form from './components/Form';
+import RenderCompleted from './Rooks/RenderCompleted';
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
     ssr: false,
 }), []);
 
-
+ const isMounted = RenderCompleted();
 
   const matches = useMediaQuery('(min-width:401px)');
 
@@ -139,7 +140,7 @@ export default function Home() {
             borderRadius: '8px',
           }}>
 
-        <Map />
+        {isMounted && <Map />}
           </Box>
           <Box sx={{
             width: '80%',
