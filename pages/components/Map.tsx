@@ -28,7 +28,9 @@ function Map() {
 
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <Avatar sx={{ margin: '20px  auto', width: 56, height: 56 }}> Ca</Avatar>
+                            <Avatar sx={{ margin: '20px  auto', width: 56, height: 56, bgcolor: deepPurple[500] }} variant="rounded">
+                                    CA
+                            </Avatar>
                         </div>
                     </div>
 
@@ -54,7 +56,7 @@ function Map() {
                         <div>
                          
                             <Avatar sx={{ margin: '20px  auto', width: 56, height: 56, bgcolor: deepPurple[500] }} variant="rounded">
-                                    CA
+                                    Jo
                             </Avatar>
                         </div>
                     </div>
