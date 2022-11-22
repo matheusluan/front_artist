@@ -1,4 +1,4 @@
-
+import * as React from 'react';
 import { Box } from '@mui/system';
 import Header from './components/Header';
 
@@ -7,12 +7,17 @@ import { Grid, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
 import Form from './components/Form';
-import 'leaflet/dist/leaflet.css'
 
 
 export default function Home() {
 
-  const Map = dynamic(() => import('./components/Map'), {ssr: false});
+  const Map = dynamic(
+    () => import('./components/Map'), // replace '@components/map' with your component's location
+    { 
+      loading: () => <p>A map is loading</p>,
+      ssr: false // This line is important. It's what prevents server-side render
+    }
+  )
 
   const matches = useMediaQuery('(min-width:401px)');
 
