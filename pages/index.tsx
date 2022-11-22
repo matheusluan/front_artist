@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Box } from '@mui/system';
 import Header from './components/Header';
 
@@ -9,27 +9,16 @@ import dynamic from 'next/dynamic';
 import Form from './components/Form';
 
 
-
-
 export default function Home() {
 
-  const [isBrowser, setIsBrowser] = useState(false);
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
+  const Map = useMemo(() => dynamic(() => import('./components/Map'), {
+    loading: () => <p>A map is loading</p>,
+    ssr: false,
+}), []);
 
 
-  const Map = dynamic(
-    () => import('./components/Map'), // replace '@components/map' with your component's location
-    { 
-      loading: () => <p>A map is loading</p>,
-      ssr: false // This line is important. It's what prevents server-side render
-    }
-  )
 
   const matches = useMediaQuery('(min-width:401px)');
-
-  
 
   const styleTpMoreThen400 = {
 
@@ -150,7 +139,7 @@ export default function Home() {
             borderRadius: '8px',
           }}>
 
-       {isBrowser && <Map />}
+        <Map />
           </Box>
           <Box sx={{
             width: '80%',
