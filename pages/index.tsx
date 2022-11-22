@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import Header from './components/Header';
 
@@ -9,7 +9,15 @@ import dynamic from 'next/dynamic';
 import Form from './components/Form';
 
 
+
+
 export default function Home() {
+
+  const [isBrowser, setIsBrowser] = useState(false);
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
 
   const Map = dynamic(
     () => import('./components/Map'), // replace '@components/map' with your component's location
@@ -20,6 +28,8 @@ export default function Home() {
   )
 
   const matches = useMediaQuery('(min-width:401px)');
+
+  
 
   const styleTpMoreThen400 = {
 
@@ -140,7 +150,7 @@ export default function Home() {
             borderRadius: '8px',
           }}>
 
-          <Map />
+       {isBrowser && <Map />}
           </Box>
           <Box sx={{
             width: '80%',
