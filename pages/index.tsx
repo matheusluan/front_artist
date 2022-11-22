@@ -13,8 +13,7 @@ import RenderCompleted from './Rooks/RenderCompleted';
 export default function Home() {
 
   const Map = useMemo(() => dynamic(() => import('./components/Map'), {
-    loading: () => <p>A map is loading</p>,
-    ssr: true,
+    loading: () => <p>A map is loading</p>
 }), []);
 
  const isMounted = RenderCompleted();
