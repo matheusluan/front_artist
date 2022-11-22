@@ -7,6 +7,7 @@ import { Grid, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
 import Form from './components/Form';
+import 'leaflet/dist/leaflet.css'
 
 
 export default function Home() {
