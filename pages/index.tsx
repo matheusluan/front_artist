@@ -7,18 +7,14 @@ import { Grid, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import dynamic from 'next/dynamic';
 import Form from './components/Form';
-import RenderCompleted from './Rooks/RenderCompleted';
-
 
 export default function Home() {
 
-  const Map = useMemo(() => dynamic(() => import('./components/Map'), {
-    loading: () => <p>A map is loading</p>
-}), []);
-
- const isMounted = RenderCompleted();
-
   const matches = useMediaQuery('(min-width:401px)');
+
+  const Map = dynamic(() => import('./components/Map'), {
+    loading: () => <p>A map is loading</p>
+  });
 
   const styleTpMoreThen400 = {
 
@@ -138,8 +134,8 @@ export default function Home() {
             margin: '-3% auto',
             borderRadius: '8px',
           }}>
-
-        {isMounted && <Map />}
+ 
+          <Map />
           </Box>
           <Box sx={{
             width: '80%',
