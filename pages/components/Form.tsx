@@ -3,18 +3,20 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Autocomplete, Grid, IconButton, StepIcon, Tooltip, Typography } from '@mui/material';
 
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 export default function Form() {
 
     const cidades = [
         { label: 'Foz do Iguaçu' },
         { label: 'Cascavel' },
-        { label: 'Santa Terezinha'}
+        { label: 'Santa Terezinha' }
     ]
 
     const estados = [
         { label: 'Paraná' },
         { label: 'Santa Catarina' },
-        { label: 'São Paulo'}
+        { label: 'São Paulo' }
     ]
 
     const orcamentos = [
@@ -36,7 +38,7 @@ export default function Form() {
             autoComplete="off"
         >
             <div>
-                <TextField label="Nome" />                
+                <TextField label="Nome" />
                 <TextField label="E-mail" />
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
@@ -48,37 +50,34 @@ export default function Form() {
                 </Grid>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
-                    <Autocomplete
-                        disablePortal
-                        options={cidades}
-                        renderInput={(params) => <TextField {...params} label="Cidade" />}
-                    />
+                        <Autocomplete
+                            disablePortal
+                            options={cidades}
+                            renderInput={(params) => <TextField {...params} label="Cidade" />}
+                        />
                     </Grid>
                     <Grid item xs={6}>
-                    <Autocomplete
-                        disablePortal                        
-                        options={estados}
-                        renderInput={(params) => <TextField {...params} label="Estado" />}
-                    />
+                        <Autocomplete
+                            disablePortal
+                            options={estados}
+                            renderInput={(params) => <TextField {...params} label="Estado" />}
+                        />
                     </Grid>
                 </Grid>
                 <Autocomplete
-                        disablePortal                        
-                        options={orcamentos}
-                        renderInput={(params) => <TextField {...params} label="Orçamento" />}
-                    />
-               <Typography> Midias Sociais</Typography>
-                <Grid container spacing={2}>                
-                    <Grid item xs={6}>
-                        <TextField label="CPF ou CNPJ" />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField label="Telefone" />
-                    </Grid>
-                </Grid>    
-
+                    disablePortal
+                    options={orcamentos}
+                    renderInput={(params) => <TextField {...params} label="Orçamento" />}
+                />
+                <Typography
+                    sx={{
+                        fontSize: '26px',
+                        fontFamily: 'nunito',
+                        fontWeight: 700,
+                        color: '#fff'
+                    }}> Midias Sociais </Typography>               
 
             </div>
-        </Box>
+        </Box >
     );
 }

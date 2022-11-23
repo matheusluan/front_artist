@@ -12,10 +12,11 @@ export default function Home() {
 
   const matches = useMediaQuery('(min-width:401px)');
 
-  const Map = dynamic(() => import('./components/Map'), {
-    loading: () => <p>A map is loading</p>
-  });
 
+  const Map = dynamic(() => import('./components/Map'), {
+    ssr: false,
+  });
+ 
   const styleTpMoreThen400 = {
 
     title: {

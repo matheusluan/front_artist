@@ -9,9 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Artist</title> 
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-            integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-            crossOrigin="" />  
+        
       </Head>
       <CssBaseline />
       <Component {...pageProps} />
