@@ -71,8 +71,9 @@ export default function Form() {
                 />
                 <Typography
                     sx={{
-                        fontSize: '26px',
+                        fontSize: '18px',
                         fontFamily: 'nunito',
+                        margin:"0 10px",
                         fontWeight: 700,
                         color: '#fff'
                     }}> Midias Sociais </Typography>               
